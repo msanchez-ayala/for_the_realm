@@ -88,25 +88,26 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            PlayingCard(cardColor: Colors.green, rank: 'C', suit: '♠')
+            PlayingCard(
+              heroName: 'Blood Priest',
+              attributes: const ['Intimidate', 'Ruthless'],
+              abilities: const [
+                'Feed: -1 ♥ to Blood\nPriest, +2 ⚔ | ⛨ to any mate',
+                'Leech: -1 ♥ to any foe,\n+1 ♥ to Blood Priest'
+              ],
+              health: 5,
+              speed: 4,
+              attack: 4,
+              defense: 4,
+              intelligence: 6,
+              extraStat: 10,
+              skill1: 'Skill1',
+              skill2: 'Skill2',
+              skill3: 'Skill3',
+            )
           ],
         ),
       ),
