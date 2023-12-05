@@ -21,7 +21,7 @@ class TextWithBackground extends StatelessWidget {
         ),
         alignment: Alignment.centerLeft,
         child: Padding(
-          padding: const EdgeInsets.only(left: 8),
+          padding: const EdgeInsets.only(left: 12.0),
           child: Text(
             text,
             style: TextStyle(fontSize: fontSize, color: Colors.white),

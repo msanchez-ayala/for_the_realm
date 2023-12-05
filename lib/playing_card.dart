@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'bordered_icon.dart';
 import 'text_with_background.dart';
 
 const double cardWidth = 300;
@@ -37,11 +38,17 @@ class PlayingCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> attributeStrings = [
+      '⚔ $attack',
+      '⛨ $defense',
+      '🧠 $intelligence',
+      '★ $extraStat'
+    ];
     return Container(
       width: cardWidth,
       height: cardHeight,
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 240, 240, 240),
+        color: const Color.fromARGB(255, 227, 227, 227),
         // borderRadius: BorderRadius.circular(12.0),
         border: Border.all(color: Colors.grey, width: 1.0),
       ),
@@ -99,22 +106,14 @@ class PlayingCard extends StatelessWidget {
                   '🪽' * speed,
                   style: const TextStyle(fontSize: 20.0),
                 ),
-                Text(
-                  '⚔ $attack',
-                  style: const TextStyle(fontSize: 20.0),
-                ),
-                Text(
-                  '⛨ $defense',
-                  style: const TextStyle(fontSize: 20.0),
-                ),
-                Text(
-                  '🧠 $intelligence',
-                  style: const TextStyle(fontSize: 20.0),
-                ),
-                Text(
-                  '★ $extraStat',
-                  style: const TextStyle(fontSize: 20.0),
-                ),
+                ...attributeStrings.map((String str) {
+                  return BorderedIcon(
+                    text: str,
+                    borderColor: Colors.blue,
+                    width: 40,
+                    fontSize: 20.0,
+                  );
+                }).toList(),
                 Text(
                   skill1,
                   style: const TextStyle(fontSize: 20.0),
