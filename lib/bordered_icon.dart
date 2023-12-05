@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'circled_number.dart';
 
 class BorderedIcon extends StatelessWidget {
   final String text; // rename to icon path once we get icon files
@@ -39,19 +40,11 @@ class BorderedIcon extends StatelessWidget {
         Positioned(
           top: 0,
           right: 0,
-          child: Container(
-              width: circleRadius * 2,
-              height: circleRadius * 2,
-              decoration:
-                  BoxDecoration(color: borderColor, shape: BoxShape.circle),
-              alignment: Alignment.center,
-              child: Text(
-                value.toString(),
-                style: TextStyle(
-                    fontSize: textCircleFontSize,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-              )),
+          child: CircledNumber(
+            value: value,
+            color: borderColor,
+            radius: circleRadius,
+          ),
         )
       ]),
     );

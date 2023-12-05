@@ -48,13 +48,13 @@ class PlayingCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const Color primaryRed = Color.fromARGB(255, 117, 36, 39);
+    const Color primaryBlue = Color.fromARGB(255, 16, 16, 141);
     List<IconWithData> stats = [
       IconWithData(text: '⚔', value: attack),
       IconWithData(text: '⛨', value: defense),
       IconWithData(text: '🧠', value: intelligence),
-      IconWithData(text: '★', value: extraStat),
     ];
-    // TODO: pass in this data perhaps instead
     List<IconWithData> skills = [
       IconWithData(text: skill1, value: attack),
       IconWithData(text: skill2, value: defense),
@@ -64,7 +64,7 @@ class PlayingCard extends StatelessWidget {
       width: cardWidth,
       height: cardHeight,
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 227, 227, 227),
+        color: const Color.fromARGB(255, 245, 245, 245),
         // borderRadius: BorderRadius.circular(12.0),
         border: Border.all(color: Colors.grey, width: 1.0),
       ),
@@ -75,7 +75,10 @@ class PlayingCard extends StatelessWidget {
               top: 0,
               child: Text(
                 heroName,
-                style: const TextStyle(fontSize: 20.0),
+                style: const TextStyle(
+                    fontSize: 20.0,
+                    color: primaryRed,
+                    fontWeight: FontWeight.bold),
               )),
           Positioned(
             left: 0,
@@ -89,7 +92,7 @@ class PlayingCard extends StatelessWidget {
                 ...attributes.map((String item) {
                   return TextWithBackground(
                       text: item,
-                      backgroundColor: const Color.fromARGB(255, 117, 36, 39),
+                      backgroundColor: primaryRed,
                       fontSize: 16.0,
                       width: 100);
                 }).toList(),
@@ -98,7 +101,7 @@ class PlayingCard extends StatelessWidget {
                 ...abilities.map((String ability) {
                   return TextWithBackground(
                     text: ability,
-                    backgroundColor: const Color.fromARGB(255, 153, 100, 87),
+                    backgroundColor: const Color.fromARGB(255, 184, 113, 96),
                     fontSize: 16.0,
                     width: 230,
                   );
@@ -116,7 +119,7 @@ class PlayingCard extends StatelessWidget {
               children: [
                 Text(
                   "♥" * health,
-                  style: const TextStyle(fontSize: 20.0),
+                  style: const TextStyle(fontSize: 20.0, color: primaryRed),
                 ),
                 Text(
                   '🪽' * speed,
@@ -126,15 +129,21 @@ class PlayingCard extends StatelessWidget {
                   return BorderedIcon(
                     text: stat.text,
                     value: stat.value,
-                    borderColor: Colors.blue,
+                    borderColor: primaryRed,
                     width: 28,
                   );
                 }).toList(),
+                BorderedIcon(
+                  text: '★',
+                  value: extraStat,
+                  borderColor: Colors.purple,
+                  width: 28,
+                ),
                 ...skills.map((IconWithData skill) {
                   return BorderedIcon(
                     text: skill.text,
                     value: skill.value,
-                    borderColor: Colors.blue,
+                    borderColor: primaryBlue,
                     width: 42,
                   );
                 }).toList(),
