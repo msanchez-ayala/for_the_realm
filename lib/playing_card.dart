@@ -8,6 +8,16 @@ const double cardWidth = 300;
 const double heightWidthRatio = 1.36;
 const double cardHeight = cardWidth * heightWidthRatio;
 
+class IconWithData {
+  final String text;
+  final int value;
+
+  IconWithData({
+    required this.text,
+    required this.value,
+  });
+}
+
 class PlayingCard extends StatelessWidget {
   final String heroName;
   final List<String> attributes;
@@ -38,13 +48,18 @@ class PlayingCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> attributeStrings = [
-      '⚔ $attack',
-      '⛨ $defense',
-      '🧠 $intelligence',
-      '★ $extraStat'
+    List<IconWithData> stats = [
+      IconWithData(text: '⚔', value: attack),
+      IconWithData(text: '⛨', value: defense),
+      IconWithData(text: '🧠', value: intelligence),
+      IconWithData(text: '★', value: extraStat),
     ];
-    List<String> skillStrings = [skill1, skill2, skill3];
+    // TODO: pass in this data perhaps instead
+    List<IconWithData> skills = [
+      IconWithData(text: skill1, value: attack),
+      IconWithData(text: skill2, value: defense),
+      IconWithData(text: skill3, value: intelligence),
+    ];
     return Container(
       width: cardWidth,
       height: cardHeight,
@@ -107,20 +122,20 @@ class PlayingCard extends StatelessWidget {
                   '🪽' * speed,
                   style: const TextStyle(fontSize: 20.0),
                 ),
-                ...attributeStrings.map((String str) {
+                ...stats.map((IconWithData stat) {
                   return BorderedIcon(
-                    text: str,
+                    text: stat.text,
+                    value: stat.value,
                     borderColor: Colors.blue,
-                    width: 26,
-                    fontSize: 20.0,
+                    width: 28,
                   );
                 }).toList(),
-                ...attributeStrings.map((String str) {
+                ...skills.map((IconWithData skill) {
                   return BorderedIcon(
-                    text: str,
+                    text: skill.text,
+                    value: skill.value,
                     borderColor: Colors.blue,
-                    width: 40,
-                    fontSize: 28.0,
+                    width: 42,
                   );
                 }).toList(),
               ],
