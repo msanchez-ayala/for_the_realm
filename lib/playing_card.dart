@@ -44,6 +44,7 @@ class PlayingCard extends StatelessWidget {
       '🧠 $intelligence',
       '★ $extraStat'
     ];
+    List<String> skillStrings = [skill1, skill2, skill3];
     return Container(
       width: cardWidth,
       height: cardHeight,
@@ -110,22 +111,18 @@ class PlayingCard extends StatelessWidget {
                   return BorderedIcon(
                     text: str,
                     borderColor: Colors.blue,
-                    width: 40,
+                    width: 26,
                     fontSize: 20.0,
                   );
                 }).toList(),
-                Text(
-                  skill1,
-                  style: const TextStyle(fontSize: 20.0),
-                ),
-                Text(
-                  skill2,
-                  style: const TextStyle(fontSize: 20.0),
-                ),
-                Text(
-                  skill3,
-                  style: const TextStyle(fontSize: 20.0),
-                ),
+                ...attributeStrings.map((String str) {
+                  return BorderedIcon(
+                    text: str,
+                    borderColor: Colors.blue,
+                    width: 40,
+                    fontSize: 28.0,
+                  );
+                }).toList(),
               ],
             ),
           ),

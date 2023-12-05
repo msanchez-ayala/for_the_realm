@@ -104,9 +104,9 @@ class _MyHomePageState extends State<MyHomePage> {
               defense: 4,
               intelligence: 6,
               extraStat: 10,
-              skill1: 'Skill1',
-              skill2: 'Skill2',
-              skill3: 'Skill3',
+              skill1: 'S1',
+              skill2: 'S2',
+              skill3: 'S3',
             )
           ],
         ),
