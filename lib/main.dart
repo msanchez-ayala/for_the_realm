@@ -69,6 +69,25 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  static PlayingCard buildPlayingCard() {
+    return PlayingCard(
+        heroName: 'Blood Priest',
+        attributes: const ['Intimidate', 'Ruthless'],
+        abilities: const [
+          'Feed: -1 ♥ to Blood\nPriest, +2 ⚔ | ⛨ to any mate',
+          'Leech: -1 ♥ to any foe,\n+1 ♥ to Blood Priest'
+        ],
+        health: 5,
+        speed: 4,
+        attack: 4,
+        defense: 4,
+        intelligence: 6,
+        extraStat: 10,
+        skill1: 'S1',
+        skill2: 'S2',
+        skill3: 'S3');
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -90,25 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            PlayingCard(
-              heroName: 'Blood Priest',
-              attributes: const ['Intimidate', 'Ruthless'],
-              abilities: const [
-                'Feed: -1 ♥ to Blood\nPriest, +2 ⚔ | ⛨ to any mate',
-                'Leech: -1 ♥ to any foe,\n+1 ♥ to Blood Priest'
-              ],
-              health: 5,
-              speed: 4,
-              attack: 4,
-              defense: 4,
-              intelligence: 6,
-              extraStat: 10,
-              skill1: 'S1',
-              skill2: 'S2',
-              skill3: 'S3',
-            )
-          ],
+          children: [buildPlayingCard()],
         ),
       ),
       floatingActionButton: FloatingActionButton(
