@@ -74,11 +74,10 @@ class PlayingCard extends StatelessWidget {
     return Container(
       width: cardWidth,
       height: cardHeight,
-      decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 245, 245, 245),
-          // borderRadius: BorderRadius.circular(12.0),
-          border: Border.all(color: Colors.grey, width: 1.0),
-          borderRadius: const BorderRadius.all(Radius.circular(8.0))),
+      decoration: const BoxDecoration(
+        color: Color.fromARGB(255, 245, 245, 245),
+        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+      ),
       child: Stack(
         children: [
           Positioned(child: Text('B', style: placeholderTextStyle)),

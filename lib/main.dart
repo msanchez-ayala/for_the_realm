@@ -80,6 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     List<PlayingCard> cards =
         List.generate(10, (index) => buildPlayingCard(index + 1));
+    const Color backgroundColor = Color.fromARGB(255, 116, 116, 116);
     return Scaffold(
       appBar: AppBar(
         // TRY THIS: Try changing the color here to a specific color (to
@@ -91,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title, style: const TextStyle(color: Colors.white)),
       ),
       body: Container(
-        color: Colors.grey,
+        color: backgroundColor,
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -104,7 +105,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   return cards[index];
                 },
                 separatorBuilder: (context, index) {
-                  return Container(width: 12.0, color: Colors.grey);
+                  return Container(
+                      width: 12.0, color: Color.fromARGB(255, 116, 116, 116));
                 },
                 physics: const ScrollPhysics(),
               ),
