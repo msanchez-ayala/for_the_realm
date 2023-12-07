@@ -79,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     List<PlayingCard> cards =
-        List.generate(10, (index) => buildPlayingCard(index));
+        List.generate(10, (index) => buildPlayingCard(index + 1));
     return Scaffold(
       appBar: AppBar(
         // TRY THIS: Try changing the color here to a specific color (to

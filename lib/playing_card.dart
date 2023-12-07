@@ -61,6 +61,10 @@ class PlayingCard extends StatelessWidget {
       IconWithData(text: skill2, value: defense),
       IconWithData(text: skill3, value: intelligence),
     ];
+    double affinityWidth = cardWidth / 5;
+    double titleWidth = cardWidth - 2 * affinityWidth;
+    double titleHeight = cardHeight / 10;
+
     return Container(
       width: cardWidth,
       height: cardHeight,
@@ -72,14 +76,19 @@ class PlayingCard extends StatelessWidget {
       child: Stack(
         children: [
           Positioned(
-              left: 20, // TODO: position dynamically instead of hacking
-              top: 7,
-              child: Text(
-                heroName,
-                style: const TextStyle(
-                    fontSize: 22.0,
-                    color: primaryRed,
-                    fontWeight: FontWeight.bold),
+              left: 0, // TODO: position dynamically instead of hacking
+              top: 0,
+              child: Container(
+                width: titleWidth,
+                height: cardHeight / 10,
+                alignment: Alignment.center,
+                child: Text(
+                  heroName,
+                  style: const TextStyle(
+                      fontSize: 22.0,
+                      color: primaryRed,
+                      fontWeight: FontWeight.bold),
+                ),
               )),
           Positioned(
             left: 0,
@@ -126,7 +135,8 @@ class PlayingCard extends StatelessWidget {
                   children: [
                     ...topRightTexts.map((String text) {
                       return Container(
-                          width: 65,
+                          width: affinityWidth,
+                          height: titleHeight,
                           color: primaryRed,
                           alignment: Alignment.center,
                           child: Text(text,
