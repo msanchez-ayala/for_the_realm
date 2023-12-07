@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'playing_card.dart';
 
 void main() {
@@ -29,10 +30,10 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: primaryRed),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'For the Realm'),
     );
   }
 }
@@ -56,22 +57,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  static PlayingCard buildPlayingCard() {
+  static PlayingCard buildPlayingCard(int index) {
     return PlayingCard(
-        heroName: 'Blood Priest',
+        heroName: 'Blood Priest $index',
         attributes: const ['Intimidate', 'Ruthless'],
         abilities: const [
           'Feed: -1 ♥ to Blood\nPriest, +2 ⚔ | ⛨ to any mate',
@@ -90,33 +78,40 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    List<PlayingCard> cards =
+        List.generate(10, (index) => buildPlayingCard(index));
     return Scaffold(
       appBar: AppBar(
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
         // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text(widget.title, style: const TextStyle(color: Colors.white)),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [buildPlayingCard()],
+      body: Container(
+        color: Colors.grey,
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: cardHeight,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemCount: cards.length,
+                itemBuilder: (context, index) {
+                  return cards[index];
+                },
+                separatorBuilder: (context, index) {
+                  return Container(width: 12.0, color: Colors.grey);
+                },
+                physics: const ScrollPhysics(),
+              ),
+            ),
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

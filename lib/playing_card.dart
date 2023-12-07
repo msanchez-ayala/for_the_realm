@@ -7,6 +7,8 @@ import 'text_with_background.dart';
 const double cardWidth = 310;
 const double heightWidthRatio = 1.36;
 const double cardHeight = cardWidth * heightWidthRatio;
+const Color primaryRed = Color.fromARGB(255, 117, 36, 39);
+const Color primaryBlue = Color.fromARGB(255, 16, 16, 141);
 
 class IconWithData {
   final String text;
@@ -48,8 +50,6 @@ class PlayingCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const Color primaryRed = Color.fromARGB(255, 117, 36, 39);
-    const Color primaryBlue = Color.fromARGB(255, 16, 16, 141);
     List<String> topRightTexts = ['Aff', 'Aln'];
     List<IconWithData> stats = [
       IconWithData(text: '⚔', value: attack),
@@ -65,10 +65,10 @@ class PlayingCard extends StatelessWidget {
       width: cardWidth,
       height: cardHeight,
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 245, 245, 245),
-        // borderRadius: BorderRadius.circular(12.0),
-        border: Border.all(color: Colors.grey, width: 1.0),
-      ),
+          color: const Color.fromARGB(255, 245, 245, 245),
+          // borderRadius: BorderRadius.circular(12.0),
+          border: Border.all(color: Colors.grey, width: 1.0),
+          borderRadius: const BorderRadius.all(Radius.circular(8.0))),
       child: Stack(
         children: [
           Positioned(
