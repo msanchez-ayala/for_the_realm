@@ -65,6 +65,12 @@ class PlayingCard extends StatelessWidget {
     double titleWidth = cardWidth - 2 * affinityWidth;
     double titleHeight = cardHeight / 10;
 
+    TextStyle placeholderTextStyle = const TextStyle(
+        fontSize: 240,
+        fontWeight: FontWeight.bold,
+        fontFamily: 'arial',
+        color: Color.fromARGB(255, 53, 53, 53));
+
     return Container(
       width: cardWidth,
       height: cardHeight,
@@ -75,6 +81,11 @@ class PlayingCard extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(8.0))),
       child: Stack(
         children: [
+          Positioned(child: Text('B', style: placeholderTextStyle)),
+          Positioned(
+              left: cardWidth * .35,
+              top: cardHeight * .25,
+              child: Text('P', style: placeholderTextStyle)),
           Positioned(
               left: 0, // TODO: position dynamically instead of hacking
               top: 0,
