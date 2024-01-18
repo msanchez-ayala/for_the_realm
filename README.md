@@ -1,16 +1,11 @@
 # for_the_realm
 
-A new Flutter project.
+This is a viewer for playing cards for FTR using the Flutter frontend framework.
 
-## Getting Started
+To run this, you need to first complete the installation here https://docs.flutter.dev/get-started/install
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Then, clone this repo and issue the following commands
+```
+cd for_the_realm
+flutter run
+```
